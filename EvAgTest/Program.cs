@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace EvAgTest
 {
@@ -14,11 +15,13 @@ namespace EvAgTest
 
             evolution.CreatePopulation();
             int generation = 0;
-            while(evolution.highestEvo <9)
+            while(evolution.highestEvo <10)
             {
+                Console.Clear();
                 Console.WriteLine("Generation: " + generation++);
                 evolution.CreateNextGen();
                 evolution.Statistic();
+                Thread.Sleep(35);
             }
 
             //evolution.WritePopulationOnScreen();

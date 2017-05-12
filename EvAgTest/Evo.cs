@@ -47,7 +47,7 @@ namespace EvAgTest
             
             for (int i = 0; i < evaluation.Length; i++)
             {
-                if (evaluation[i] > highestEvaluation / 2 || random.Next(0,100)>95)
+                if (evaluation[i] > highestEvaluation -2 || random.Next(0,100)>90)
                 {
                     Mutate(ref population[i]);
                     nextGeneration[genCounter++] = population[i];
@@ -74,7 +74,7 @@ namespace EvAgTest
 
             for (int j = 0; j < 10; j++)
             {
-                gen[j] = random.Next(0, 100) > 99 ? true : false;
+                gen[j] = random.Next(0, 100) > 90 ? true : false;
             }
             return gen;
         }
@@ -104,7 +104,7 @@ namespace EvAgTest
                     highestIndex = i;
                 }
             }
-            Console.WriteLine("Highest Evolution: " +highestEvo);
+            Console.WriteLine("Highest Evolution: " + (highestEvo));
             return count;
         }
 
@@ -134,7 +134,7 @@ namespace EvAgTest
 
         public void Statistic()
         {
-            int[] stats = new int[10];
+            int[] stats = new int[11];
             for (int i = 0; i < stats.Length; i++)
             {
                 stats[i] = 0;
@@ -148,7 +148,7 @@ namespace EvAgTest
             int counter = 0;
             foreach (int i in stats)
             {
-                Console.WriteLine(++counter + ": " + i);
+                Console.WriteLine(counter++ + ": " + i);
             }
         }
 
